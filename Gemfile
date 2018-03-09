@@ -61,3 +61,6 @@ gem "bootstrap", "~> 4.0"
 
 # Added at 2018-03-08 23:58:37 -0500 by arthurjohe:
 gem "jquery-rails", "~> 4.3"
+
+# Added at 2018-03-09 01:20:29 -0500 by arthurjohe:
+gem "rails-controller-testing", "~> 1.0"
