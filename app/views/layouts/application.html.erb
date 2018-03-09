@@ -2,37 +2,15 @@
 <html>
   <head>
     <title> <%= full_title(yield(:title)) %> </title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render "rails_default" %>
   </head>
 
   <body>
-  <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <%= link_to "This or That", '#', :class => "navbar-brand" %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <%= link_to "About", '#', :class => "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Help", '#', :class => "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Login", '#', :class => "nav-link" %>
-      </li>
-  </header>
+  <%= render "header" %>
 
     <div class="container" >
     <%= yield %>
     </div>
-
-
+  <%= render "footer" %>
   </body>
 </html>
