@@ -64,3 +64,6 @@ gem "jquery-rails", "~> 4.3"
 
 # Added at 2018-03-09 01:20:29 -0500 by arthurjohe:
 gem "rails-controller-testing", "~> 1.0"
+
+# Added at 2018-03-21 02:12:48 -0400 by arthurjohe:
+gem "rubocop", "~> 0.54.0"
