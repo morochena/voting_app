@@ -67,3 +67,12 @@ gem "rails-controller-testing", "~> 1.0"
 
 # Added at 2018-03-21 02:12:48 -0400 by arthurjohe:
 gem "rubocop", "~> 0.54.0"
+
+# Added at 2018-04-04 04:47:29 -0400 by arthurjohe:
+gem "faker", "~> 1.8"
+
+# Added at 2018-04-04 04:54:04 -0400 by arthurjohe:
+gem "will_paginate", "~> 3.1"
+
+# Added at 2018-04-04 04:54:36 -0400 by arthurjohe:
+gem "bootstrap-will_paginate", "~> 1.0"
