@@ -76,3 +76,12 @@ gem "will_paginate", "~> 3.1"
 
 # Added at 2018-04-04 04:54:36 -0400 by arthurjohe:
 gem "bootstrap-will_paginate", "~> 1.0"
+
+# Added at 2018-04-07 17:09:49 -0400 by arthurjohe:
+gem "carrierwave", "~> 1.2"
+
+# Added at 2018-04-07 17:10:19 -0400 by arthurjohe:
+gem "mini_magick", "~> 4.8"
+
+# Added at 2018-04-07 17:10:38 -0400 by arthurjohe:
+gem "fog", "~> 2.0"
