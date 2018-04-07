@@ -1,0 +1,57 @@
+<%= form_with(model: @poll, local: true) do |form| %>
+  <% if @poll.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@poll.errors.count, "error") %> prohibited this @poll from being saved:</h2>
+
+      <ul>
+      <% @poll.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :poll_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :option1 %>
+    <%= form.text_field :option1, id: :poll_option1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :option2 %>
+    <%= form.text_field :option2, id: :poll_option2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :option3 %>
+    <%= form.text_field :option3, id: :poll_option3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :option4 %>
+    <%= form.text_field :option4, id: :poll_option4 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :option5 %>
+    <%= form.text_field :option5, id: :poll_option5 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :option6 %>
+    <%= form.text_field :option6, id: :poll_option6 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :poll_user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

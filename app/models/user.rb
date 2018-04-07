@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :polls, dependent: :destroy
 attr_accessor :remember_token, :activation_token, :reset_token
 before_save :downcase_email
 before_create :create_activation_digest
@@ -62,6 +63,12 @@ end
 # checks password reset hasn't expired
 def password_reset_expired?
   reset_sent_at < 2.hours.ago
+end
+
+# defines proto feed
+# see following users for full implementation
+def feed
+  Poll.where("user_id = ?", id)
 end
 
 private

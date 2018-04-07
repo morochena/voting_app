@@ -24,3 +24,11 @@ User.create!(name:  "Example User",
                activated: true,
                activated_at: Time.zone.now)
 end
+
+users = User.order(:created_at).take(6)
+50.times do
+  title = Faker::Lorem.sentence(5)
+  option1 = Faker::Name.name
+  option2 = Faker::Name.name
+  users.each { |user| user.polls.create!(title: title, option1: option1, option2: option2) }
+end

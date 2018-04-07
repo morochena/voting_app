@@ -1,0 +1,12 @@
+<li id="poll-<%= poll.id %>">
+  <%= link_to gravatar_for(poll.user, size: 50), poll.user %>
+  <span class="user"><%= link_to poll.user.name, poll.user %></span>
+  <div class="poll-title"><%= poll.title %></div>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(poll.created_at) %> ago.
+    <% if current_user?(poll.user) %>
+      <%= link_to "delete", poll, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+    <% end %>
+  </span>
+</li>
