@@ -4,14 +4,14 @@ class Poll < ApplicationRecord
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
   validates :title, presence: true
-  validates :picture_size
+  validate :picture_size
 end
 
 private
 
 # validates pictures size
 def picture_size
-  if picture.size > .5.megabytes
+  if picture.size > 5.megabytes
     errors.add(:picture, "Should be less than 5 megabytes")
   end
 end
