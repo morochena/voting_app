@@ -2,37 +2,51 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @poll.title %>
+  <u><%= @poll.title %></u>
+  <br>
+  <%= image_tag @poll.picture if @poll.picture? %>
 </p>
 
 <p>
-  <strong>Option1:</strong>
+<%= image_tag @poll.option1_picture.thumb.url if @poll.option1_picture? %>
+  <strong>
   <%= @poll.option1 %>
+  </strong>
 </p>
 
 <p>
-  <strong>Option2:</strong>
+<%= image_tag @poll.option2_picture.thumb.url if @poll.option2_picture? %>
+  <strong>
   <%= @poll.option2 %>
+  </strong>
 </p>
 
 <p>
-  <strong>Option3:</strong>
+<%= image_tag @poll.option3_picture.thumb.url if @poll.option3_picture? %>
+  <strong>
   <%= @poll.option3 %>
+  </strong>
 </p>
 
 <p>
-  <strong>Option4:</strong>
+<%= image_tag @poll.option4_picture.thumb.url if @poll.option4_picture? %>
+  <strong>
   <%= @poll.option4 %>
+  </strong>
 </p>
 
 <p>
-  <strong>Option5:</strong>
+<%= image_tag @poll.option5_picture.thumb.url if @poll.option5_picture? %>
+  <strong>
   <%= @poll.option5 %>
+  </strong>
 </p>
 
 <p>
-  <strong>Option6:</strong>
+<%= image_tag @poll.option6_picture.thumb.url if @poll.option6_picture? %>
+  <strong>
   <%= @poll.option6 %>
+  </strong>
 </p>
 
 <p>

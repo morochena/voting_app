@@ -1,7 +1,7 @@
 class PollsController < ApplicationController
   before_action :set_poll, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_user, only: [:create, :edit, :update,  :destroy]
-  before_action :correct_user, only: :destroy
+  before_action :logged_in_user, only: [:create, :edit, :update, :destroy]
+  before_action :correct_user, only: [:destroy, :edit]
 
   # GET /polls
   # GET /polls.json
@@ -77,7 +77,8 @@ class PollsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def poll_params
-      params.require(:poll).permit(:title, :option1, :option2, :option3, :option4, :option5, :option6, :user_id, :picture)
+      params.require(:poll).permit(:title, :option1, :option2, :option3, :option4, :option5, :option6, :user_id, :picture,
+      :option1_picture, :option2_picture, :option3_picture, :option4_picture, :option5_picture, :option6_picture)
     end
 
     def correct_user

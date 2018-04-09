@@ -14,36 +14,57 @@
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title, id: :poll_title %>
+    <span class="picture">
+    <%= form.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+    </span>
   </div>
 
   <div class="field">
     <%= form.label :option1 %>
     <%= form.text_field :option1, id: :poll_option1 %>
+  <span class="picture">
+    <%= form.file_field :option1_picture, accept: 'image/jpeg,image/gif,image/png' %>
+  </span>
   </div>
 
   <div class="field">
     <%= form.label :option2 %>
     <%= form.text_field :option2, id: :poll_option2 %>
+  <span class="picture">
+    <%= form.file_field :option2_picture, accept: 'image/jpeg,image/gif,image/png' %>
+  </span>
   </div>
 
   <div class="field">
     <%= form.label :option3 %>
     <%= form.text_field :option3, id: :poll_option3 %>
+  <span class="picture">
+    <%= form.file_field :option3_picture, accept: 'image/jpeg,image/gif,image/png' %>
+  </span>
   </div>
 
   <div class="field">
     <%= form.label :option4 %>
     <%= form.text_field :option4, id: :poll_option4 %>
+  <span class="picture">
+    <%= form.file_field :option4_picture, accept: 'image/jpeg,image/gif,image/png' %>
+  </span>
   </div>
 
   <div class="field">
     <%= form.label :option5 %>
     <%= form.text_field :option5, id: :poll_option5 %>
+  <span class="picture">
+    <%= form.file_field :option5_picture, accept: 'image/jpeg,image/gif,image/png' %>
+  </span>
   </div>
 
   <div class="field">
     <%= form.label :option6 %>
     <%= form.text_field :option6, id: :poll_option6 %>
+  <span class="picture">
+    <%= form.file_field :option6_picture, accept: 'image/jpeg,image/gif,image/png' %>
+  </span>
   </div>
 
   <div class="field">
@@ -55,7 +76,4 @@
     <%= form.submit %>
   </div>
 
-  <span class="picture">
-  <%= form.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-  </span>
 <% end %>
