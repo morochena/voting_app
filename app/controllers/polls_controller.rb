@@ -69,6 +69,15 @@ class PollsController < ApplicationController
     redirect_to request.referrer || root_url
   end
 
+  def create_vote
+
+    Vote.create(
+      user_id: current_user.id,
+      poll_id: params[:poll_id],
+      option_num: params[:create_vote][:option]
+      )
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_poll

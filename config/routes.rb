@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :polls
+  resources :polls do
+    post 'votes', to: 'polls#create_vote'
+  end
+
+
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -16,6 +20,7 @@ Rails.application.routes.draw do
   get  '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  # post '/polls/:id/votes', to: 'polls#create_vote'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 root 'static_pages#home'

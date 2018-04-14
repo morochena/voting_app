@@ -7,47 +7,70 @@
   <%= image_tag @poll.picture if @poll.picture? %>
 </p>
 
+<%= form_for(:create_vote, url: poll_votes_path(@poll.id)) do |f| %>
+
+  <% unless @poll.option1.blank? %>
 <p>
 <%= image_tag @poll.option1_picture.thumb.url if @poll.option1_picture? %>
   <strong>
   <%= @poll.option1 %>
   </strong>
+  <%= f.radio_button :option, 1 %>
 </p>
+<% end %>
 
+<% unless @poll.option2.blank? %>
 <p>
 <%= image_tag @poll.option2_picture.thumb.url if @poll.option2_picture? %>
   <strong>
   <%= @poll.option2 %>
   </strong>
+  <%= f.radio_button :option, 2 %>
 </p>
+<% end %>
 
+<% unless @poll.option3.blank? %>
 <p>
 <%= image_tag @poll.option3_picture.thumb.url if @poll.option3_picture? %>
   <strong>
   <%= @poll.option3 %>
   </strong>
+  <%= f.radio_button :option, 3 %>
 </p>
+<% end %>
 
+<% unless @poll.option4.blank? %>
 <p>
 <%= image_tag @poll.option4_picture.thumb.url if @poll.option4_picture? %>
   <strong>
   <%= @poll.option4 %>
   </strong>
+  <%= f.radio_button :option, 4 %>
 </p>
+<% end %>
 
+<% unless @poll.option5.blank? %>
 <p>
 <%= image_tag @poll.option5_picture.thumb.url if @poll.option5_picture? %>
   <strong>
   <%= @poll.option5 %>
   </strong>
+  <%= f.radio_button :option, 5 %>
 </p>
+<% end %>
 
+<% unless @poll.option6.blank? %>
 <p>
 <%= image_tag @poll.option6_picture.thumb.url if @poll.option6_picture? %>
   <strong>
   <%= @poll.option6 %>
   </strong>
+  <%= f.radio_button :option, 6 %>
 </p>
+<% end %>
+
+<%= f.submit "Submit vote", class: "btn btn-primary" %>
+<% end %>
 
 <p>
   <strong>User:</strong>
