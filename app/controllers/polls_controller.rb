@@ -1,6 +1,6 @@
 class PollsController < ApplicationController
   before_action :set_poll, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_user, only: [:create, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:create, :edit, :update, :destroy, :create_vote, :show]
   before_action :correct_user, only: [:destroy, :edit]
 
   # GET /polls
@@ -70,8 +70,7 @@ class PollsController < ApplicationController
   end
 
   def create_vote
-
-    Vote.create(
+     Vote.create(
       user_id: current_user.id,
       poll_id: params[:poll_id],
       option_num: params[:create_vote][:option]
