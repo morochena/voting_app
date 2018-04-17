@@ -85,3 +85,6 @@ gem "mini_magick", "~> 4.8"
 
 # Added at 2018-04-07 17:10:38 -0400 by arthurjohe:
 gem "fog", "~> 2.0"
+
+# Added at 2018-04-16 21:00:44 -0400 by arthurjohe:
+gem "chartkick", "~> 2.3"

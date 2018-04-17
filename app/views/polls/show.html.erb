@@ -80,3 +80,7 @@
 <%= link_to 'Edit', edit_poll_path(@poll) %> |
 <% end %>
 <%= link_to 'Back', polls_path %>
+
+<%= bar_chart @poll.vote_counts_with_option_names,
+ xtitle: "Votes", ytitle: "Options",
+ min: 0, max: @poll.votes.count %>

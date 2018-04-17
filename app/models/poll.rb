@@ -13,6 +13,19 @@ class Poll < ApplicationRecord
   validates :title, presence: true
   validate :picture_size
 
+def vote_counts_with_option_names
+  vote_counts = self.vote_counts
+  options = Hash.new
+
+  options[self.option1] = vote_counts[:option1]
+  options[self.option2] = vote_counts[:option2]
+  options[self.option3] = vote_counts[:option3]
+  options[self.option4] = vote_counts[:option4]
+  options[self.option5] = vote_counts[:option5]
+  options[self.option6] = vote_counts[:option6]
+
+  options
+end
 
 # returns a hash with options and vote count
 def vote_counts
