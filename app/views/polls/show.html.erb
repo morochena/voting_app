@@ -83,4 +83,5 @@
 
 <%= bar_chart @poll.vote_counts_with_option_names,
  xtitle: "Votes", ytitle: "Options",
- min: 0, max: @poll.votes.count %>
+ min: 0, max: @poll.votes.count,
+ download: true %>
