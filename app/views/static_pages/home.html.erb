@@ -1,24 +1,58 @@
-<% if logged_in? %>
-  <div class="row">
-    <aside class="col-md-4">
-      <section class="user_info">
-        <%= render 'shared/user_info' %>
-      </section>
-      <section class="stats">
-        <%= render 'shared/stats' %>
-      </section>
-      <section class="poll_form">
-        <%= render 'polls/form' %>
-      </section>
-    </aside>
-    <div class="col-md-8">
-      <h3>Poll Feed</h3>
-      <%= render 'shared/feed' %>
+<header class="masthead text-center text-white">
+      <div class="masthead-content">
+        <div class="container">
+          <h1 class="masthead-heading mb-0">This Or That</h1>
+          <h2 class="masthead-subheading mb-0">Insert some compelling text about this amazing polling app here.</h2>
+          <%= link_to 'Sign Up', signup_path, class: "btn btn-primary btn-xl rounded-pill mt-5" %>
+        </div>
+      </div>
+      <div class="bg-circle-1 bg-circle"></div>
+      <div class="bg-circle-2 bg-circle"></div>
+      <div class="bg-circle-3 bg-circle"></div>
+      <div class="bg-circle-4 bg-circle"></div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-4">
+        <div class="p-5">
+          <img class="img-fluid rounded" src="http://via.placeholder.com/500x500" alt="">
+          <h3>Would you rather be friends with Godzilla, Captain Planet or King Kong?</h3>
+          <%= bar_chart({"Godzilla" => 128, "Captain Planet" => 150, "King Kong" => 300},
+              min: 0,)
+          %>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="p-5">
+          <img class="img-fluid rounded" src="http://via.placeholder.com/500x500" alt="">
+          <h3>Which Dark Souls character is the the best?</h3>
+          <%= bar_chart({
+            "Patches" => 0, 
+            "Solaire" => 300, 
+            "Blacksmith Andre" => 40,
+            "Vendrick" => 290,
+            "Anri" => 85, 
+            "Siegward" => 250,         
+            },
+              min: 0,)
+          %>
+        </div>
+      </div>
+      
+      <div class="col-lg-4">
+        <div class="p-5">
+          <img class="img-fluid rounded" src="http://via.placeholder.com/500x500" alt="">
+          <h3>What's your favorite Overwatch character?</h3>
+          <%= bar_chart({"McCree" => 3000, "Pharah" => 1},
+              min: 0,)
+          %>
+        </div>
+      </div>
+
     </div>
   </div>
-<% else %>
-<div class="center jumbotron">
-<h1>Welcome to This or That</h1>
-<%= link_to "Sign Up Nooooowwwww!!!!!!", signup_path, class: "btn btn-large btn-primary" %>
-</div>
-<% end %>
+</section>
