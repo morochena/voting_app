@@ -6,23 +6,19 @@
     <%= gravatar_card_for @user %>
     <h2 class="text-center"><%= @user.name %></h2>
 
-    <h5 class="text-center mt-3">Followers (43)</h5>
+    <h5 class="text-center mt-3">Followers (<%= @user.followers.size %>)</h5>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Omar</li>
-      <li class="list-group-item">Arthur</li>
-      <li class="list-group-item">Shu</li>
-      <li class="list-group-item">Amir</li>
-      <li class="list-group-item">Daniel</li>
+      <% @user.followers.each do |follower| %>
+        <li class="list-group-item"><small><%= follower.name %></small></li>
+      <% end %>
     </ul>
 
 
-    <h5 class="text-center mt-3">Following (43)</h5>
+    <h5 class="text-center mt-3">Following (<%= @user.following.size %>)</h5>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Omar</li>
-      <li class="list-group-item">Arthur</li>
-      <li class="list-group-item">Shu</li>
-      <li class="list-group-item">Amir</li>
-      <li class="list-group-item">Daniel</li>
+      <% @user.following.each do |following| %>
+        <li class="list-group-item"><small><%= following.name %></small></li>
+      <% end %>
     </ul>
   </div>
 
@@ -33,10 +29,10 @@
         <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Created (<%= @user.polls.count %>)</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Voted For (<%= @user.polls.count %>)</a>
+        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Voted For (<%= @user.voted_for_polls.count %>)</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Following (<%= @user.polls.count %>)</a>
+        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Following (<%= @following_polls.count %>)</a>
       </li>
     </ul>
 
@@ -47,20 +43,31 @@
           <div class="row">
             <%= render @polls %>
           </div>
-          <%= will_paginate(@polls, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
-
         <% else %>
           <h4><%= @user.name %> has not created any polls yet!</h4>
         <% end %>
       </div>
 
       <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-      
+        <% if @voted_for_polls.any? %>
+          <div class="row">
+            <%= render @voted_for_polls %>
+          </div>
+        <% else %>
+          <h4><%= @user.name %> has not voted for any polls yet!</h4>
+        <% end %>
       </div>
 
       <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-      
+       <% if @following_polls.any? %>
+          <div class="row">
+            <%= render @following_polls %>
+          </div>
+        <% else %>
+          <h4><%= @user.name %> isn't following anyone who has created any polls yet!</h4>
+        <% end %>
       </div>
+
     </div>
   </div>
 

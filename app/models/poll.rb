@@ -13,6 +13,8 @@ class Poll < ApplicationRecord
   validates :title, presence: true
   validate :picture_size
 
+  self.per_page = 9
+
 def vote_counts_with_option_names
   vote_counts = self.vote_counts
   options = Hash.new
