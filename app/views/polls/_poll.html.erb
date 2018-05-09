@@ -1,16 +1,15 @@
-<li id="poll-<%= poll.id %>">
-  <%= link_to gravatar_for(poll.user, size: 50), poll.user %>
-  <span class="user"><%= link_to poll.user.name, poll.user %></span>
-
+<div id="poll-<%= poll.id %>" class="col-sm-6 col-md-4 mb-5">
   <%= link_to poll do %>
-    <div class="poll-title"><%= poll.title %></div>
-  <%= image_tag poll.picture.url if poll.picture? %>
+    <%= image_tag poll.picture? ? poll.picture.url : "http://placehold.it/200/200", class: 'rounded mx-auto d-block img-fluid', style: "height: 150px; overflow: hidden;object-fit: contain;"%>
+    <h4 class="text-center mt-3" style="height: 60px; overflow: hidden;"><%= poll.title %></h4>
   <% end %>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(poll.created_at) %> ago.
-    <% if current_user?(poll.user) %>
-      <%= link_to "delete", poll, method: :delete,
-                                       data: { confirm: "You sure?" } %>
-    <% end %>
-  </span>
-</li>
+
+  <div class="timestamp">
+    <small>Posted <%= time_ago_in_words(poll.created_at) %> ago by <%= link_to poll.user.name, poll.user %></small><br/>
+  </div>
+
+  <% if current_user?(poll.user) %>
+  <%= link_to "delete", poll, method: :delete,
+                                    data: { confirm: "You sure?" } %>
+  <% end %>
+</div>
