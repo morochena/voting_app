@@ -19,6 +19,5 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require Chart.bundle
-//= require jsapi
 //= require chartkick
 
