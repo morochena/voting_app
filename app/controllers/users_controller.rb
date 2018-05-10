@@ -9,6 +9,8 @@ class UsersController < ApplicationController
     @polls = @user.polls
     @following_polls = @user.following_polls
     @voted_for_polls = @user.voted_for_polls
+    
+    @global_feed = Poll.global_feed
 
     redirect_to root_url and return unless @user.activated?
   end

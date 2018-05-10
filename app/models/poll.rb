@@ -59,6 +59,10 @@ def vote_counts
   return counts
 end
 
+def self.global_feed
+  Poll.all.last(10)
+end
+
 private
 
 # validates pictures size

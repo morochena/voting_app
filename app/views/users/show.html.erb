@@ -8,7 +8,7 @@
 
     <h5 class="text-center mt-3">Followers (<%= @user.followers.size %>)</h5>
     <ul class="list-group list-group-flush">
-      <% @user.followers.each do |follower| %>
+      <% @user.followers.limit(5).each do |follower| %>
         <li class="list-group-item"><small><%= follower.name %></small></li>
       <% end %>
     </ul>
@@ -16,7 +16,7 @@
 
     <h5 class="text-center mt-3">Following (<%= @user.following.size %>)</h5>
     <ul class="list-group list-group-flush">
-      <% @user.following.each do |following| %>
+      <% @user.following.limit(5).each do |following| %>
         <li class="list-group-item"><small><%= following.name %></small></li>
       <% end %>
     </ul>
@@ -24,6 +24,8 @@
 
   <div class="col-md-7">
     <!-- Polls -->
+    <h4 class="mb-4">Polls</h4>
+
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
       <li class="nav-item">
         <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Created (<%= @user.polls.count %>)</a>
@@ -36,7 +38,7 @@
       </li>
     </ul>
 
-    <div class="tab-content" id="pills-tabContent">
+    <div class="tab-content" id="pills-tabContent" style="padding: 10px; border-radius: 3px; background-color: #F8F9FA;">
 
       <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
         <% if @user.polls.any? %>
@@ -73,11 +75,23 @@
 
   <div class="col-md-3">  
   <!-- Feed -->
-    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active">Global Feed</a>
-      </li>
-    </ul>
+  <h4 class="mb-4">Global Feed</h4>
+
+    <% @global_feed.each do |poll| %>
+      <div class="row mt-3">
+        <div class="col-4">
+          <%= image_tag poll.picture? ? poll.picture.url : "http://placehold.it/200/200", class: 'rounded mx-auto d-block img-fluid', style: "overflow: hidden;object-fit: contain;"%>
+        </div>
+        <div class="col-8">
+        <%= link_to poll_path(poll) do %>
+        <h5 style="overflow: hidden;"><%= poll.title.truncate(30) %></h5>
+        <% end %>
+         <div class="timestamp">
+    <small>Posted <%= time_ago_in_words(poll.created_at) %> ago by <%= link_to poll.user.name, poll.user %></small><br/>
+  </div>
+        </div>
+      </div>
+    <% end %>
 
   </div>
 </div>
