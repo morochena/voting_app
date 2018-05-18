@@ -9,4 +9,8 @@ module ApplicationHelper
       page_title + " | " + base_title
     end
   end
+
+  def static_page? 
+    controller_name == 'static_pages'
+  end
 end

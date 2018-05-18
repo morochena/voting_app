@@ -33,7 +33,7 @@ class PollsController < ApplicationController
         #format.html { redirect_to @poll, notice: 'Poll was successfully created.' }
         #format.json { render :show, status: :created, location: @poll }
         flash[:success] = "Poll was successfully created"
-        redirect_to root_url
+        redirect_to poll_path(@poll)
       else
         #format.html { render :new }
         #format.json { render json: @poll.errors, status: :unprocessable_entity }
