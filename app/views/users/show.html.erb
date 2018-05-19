@@ -9,7 +9,7 @@
     <h5 class="text-center mt-3">Followers (<%= @user.followers.size %>)</h5>
     <ul class="list-group list-group-flush">
       <% @user.followers.limit(5).each do |follower| %>
-        <li class="list-group-item"><small><%= follower.name %></small></li>
+        <li class="list-group-item"><%= link_to follower.name, user_path(follower.id) %></li>
       <% end %>
     </ul>
 
@@ -17,7 +17,7 @@
     <h5 class="text-center mt-3">Following (<%= @user.following.size %>)</h5>
     <ul class="list-group list-group-flush">
       <% @user.following.limit(5).each do |following| %>
-        <li class="list-group-item"><small><%= following.name %></small></li>
+        <li class="list-group-item"><%= link_to following.name, user_path(following.id) %></li>
       <% end %>
     </ul>
   </div>
@@ -73,7 +73,7 @@
 
   </div>
 
-  <div class="col-md-3">  
+  <div class="col-md-3">
   <!-- Feed -->
   <h4 class="mb-4">Global Feed</h4>
 
