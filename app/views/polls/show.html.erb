@@ -6,7 +6,9 @@
   <br>
   <%= image_tag @poll.picture if @poll.picture? %>
 </p>
-
+<% if @poll.votes.where(user_id: current_user.id) %>
+<h3>You've already voted</h3>
+<%else%>
 <%= form_for(:create_vote, url: poll_votes_path(@poll.id)) do |f| %>
 
   <% unless @poll.option1.blank? %>
@@ -70,6 +72,7 @@
 <% end %>
 
 <%= f.submit "Submit vote", class: "btn btn-primary" %>
+<% end %>
 <% end %>
 
 <p>

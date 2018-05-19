@@ -34,7 +34,7 @@
         <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Voted For (<%= @user.voted_for_polls.count %>)</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Following (<%= @following_polls.count %>)</a>
+        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Following Polls(<%= @following_polls.count %>)</a>
       </li>
     </ul>
 
@@ -82,9 +82,9 @@
         <div class="col-4">
           <%= image_tag poll.picture? ? poll.picture.url : "http://placehold.it/200/200", class: 'rounded mx-auto d-block img-fluid', style: "overflow: hidden;object-fit: contain;"%>
         </div>
-        <div class="col-8">
+      <div class="col-8">
         <%= link_to poll_path(poll) do %>
-        <h5 style="overflow: hidden;"><%= poll.title.truncate(30) %></h5>
+         <h5 style="overflow: hidden;"><%= poll.title.truncate(30) %></h5>
         <% end %>
          <div class="timestamp">
     <small>Posted <%= time_ago_in_words(poll.created_at) %> ago by <%= link_to poll.user.name, poll.user %></small><br/>

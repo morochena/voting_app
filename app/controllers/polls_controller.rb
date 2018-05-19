@@ -70,11 +70,18 @@ class PollsController < ApplicationController
   end
 
   def create_vote
-     Vote.create(
+    @vote  = Vote.new(
       user_id: current_user.id,
       poll_id: params[:poll_id],
       option_num: params[:create_vote][:option]
       )
+     if @vote.save
+        flash[:success] = "You successfully voted"
+        redirect_to poll_path(params[:poll_id])
+      else
+
+      end
+
   end
 
   private
