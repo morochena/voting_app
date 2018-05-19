@@ -9,6 +9,9 @@ class User < ApplicationRecord
                                    dependent:   :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+
+  has_many :voted_for_polls, through: :votes, source: :poll
+
 attr_accessor :remember_token, :activation_token, :reset_token
 before_save :downcase_email
 before_create :create_activation_digest
@@ -88,16 +91,10 @@ def feed
                      OR user_id = :user_id", user_id: id)
 end
 
-
-def following_polls 
+def following_polls
   following_ids = "SELECT followed_id FROM relationships
                      WHERE  follower_id = :user_id"
   Poll.where("user_id IN (#{following_ids})", user_id: id).includes(:user)
-end
-
-def voted_for_polls
-  vote_ids = "SELECT user_id FROM polls WHERE user_id = :user_id"
-  Poll.where("user_id IN (#{vote_ids})", user_id: id).includes(:user)
 end
 
 #follows a user
