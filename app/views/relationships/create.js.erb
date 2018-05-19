@@ -1,3 +1,4 @@
 $("#follow_form").html("<%= escape_javascript(render('users/unfollow')) %>");
 var followCount = parseInt($("#followers").text()) + 1;
 $("#followers").text(followCount);
+

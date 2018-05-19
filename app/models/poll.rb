@@ -26,8 +26,9 @@ def vote_counts_with_option_names
   options[self.option5] = vote_counts[:option5]
   options[self.option6] = vote_counts[:option6]
 
-
   options.delete("")
+  options.delete(nil)
+
   options
 end
 

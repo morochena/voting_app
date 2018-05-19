@@ -4,9 +4,11 @@
   <strong>Title:</strong>
   <u><%= @poll.title %></u>
   <br>
+  <span>By: <%= link_to @poll.user.name, user_path(@poll.user.id) %> </span>
+  <br>
   <%= image_tag @poll.picture if @poll.picture? %>
 </p>
-<% if @poll.votes.where(user_id: current_user.id) %>
+<% if @poll.votes.where(user_id: current_user.id).exists? %>
 <h3>You've already voted</h3>
 <%else%>
 <%= form_for(:create_vote, url: poll_votes_path(@poll.id)) do |f| %>

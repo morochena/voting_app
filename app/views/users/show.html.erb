@@ -8,6 +8,7 @@
 
     <h5 class="text-center mt-3">Followers (<%= @user.followers.size %>)</h5>
     <ul class="list-group list-group-flush">
+     <%= render 'follow_form' if logged_in? %>
       <% @user.followers.limit(5).each do |follower| %>
         <li class="list-group-item"><%= link_to follower.name, user_path(follower.id) %></li>
       <% end %>
